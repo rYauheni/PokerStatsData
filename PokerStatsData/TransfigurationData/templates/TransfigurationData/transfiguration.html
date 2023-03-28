@@ -1,0 +1,27 @@
+{% extends 'TransfigurationData/base.html' %}
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+    TransfiguratedDats
+{% endblock %}
+
+{% block content %}
+    <div id="data-to-copy">
+    {% for couple in output_data|slice:":-1" %}
+        {{ couple.0 }}: {{ couple.1 }}{{ separator }}
+    {% endfor %}
+    {% for couple in output_data|slice:"-1:" %}
+        {{ couple.0 }}: {{ couple.1 }}
+    {% endfor %}
+    </div>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <script type="text/javascript" src="{% static 'TransfigurationData/js/copy.js' %}"></script>
+        <button id="copy-button" onclick="copyToClipboard()">Copy</button>
+    </form>
+{% endblock %}
