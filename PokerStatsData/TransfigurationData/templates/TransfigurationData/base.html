@@ -4,13 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'TransfigurationData/css/style.css' %}">
+    <link type="image/x-icon" href="{% static 'TransfigurationData/img/favicon.png' %}" rel="shortcut icon">
+    <link type="Image/x-icon" href="{% static 'TransfigurationData/img/favicon.png' %}" rel="icon">
     <title>{% block title %} {% endblock %}</title>
     {% block head %}
     {% endblock %}
 </head>
 <body>
+    <div class="div_link">
+        {% block link %}
+        {% endblock %}
+    </div>
     <img src="{% static 'TransfigurationData/img/cards.png' %}" class="banner">
     {% block content %}
     {% endblock %}
+
+    <footer>
+        <div class="inner_f>">
+            <p class="f_text"> This app is dedicated to the public domain under the CC0 license.</p>
+        </div>
+    </footer>
 </body>
 </html>

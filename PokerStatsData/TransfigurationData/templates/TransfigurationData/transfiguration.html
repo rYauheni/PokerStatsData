@@ -9,19 +9,37 @@
     TransfiguratedDats
 {% endblock %}
 
-{% block content %}
-    <div id="data-to-copy">
-    {% for couple in output_data|slice:":-1" %}
-        {{ couple.0 }}: {{ couple.1 }}{{ separator }}
-    {% endfor %}
-    {% for couple in output_data|slice:"-1:" %}
-        {{ couple.0 }}: {{ couple.1 }}
-    {% endfor %}
-    </div>
-    <br>
+{% block link %}
     <form method="post">
         {% csrf_token %}
-        <script type="text/javascript" src="{% static 'TransfigurationData/js/copy.js' %}"></script>
-        <button id="copy-button" onclick="copyToClipboard()">Copy</button>
+        <button type="submit" class="button_link" name="main">Main</button>
     </form>
 {% endblock %}
+
+
+{% block content %}
+    <div class="header">
+        <p>Output data:</p>
+    </div>
+    <div class="output_data">
+        <table border="0" class="output_table">
+            <tr>
+                <th id="data-to-copy">
+                    {% for couple in output_data|slice:":-1" %}
+                        {{ couple.0 }}: {{ couple.1 }}{{ separator }}
+                    {% endfor %}
+                    {% for couple in output_data|slice:"-1:" %}
+                        {{ couple.0 }}: {{ couple.1 }}
+                    {% endfor %}
+                </th>
+            </tr>
+        </table>
+        <form method="post">
+            {% csrf_token %}
+            <script type="text/javascript" src="{% static 'TransfigurationData/js/copy.js' %}"></script>
+            <button type="button" id="copy-button" onclick="copyToClipboard()" class="button_copy"></button>
+        </form>
+
+    </div>
+{% endblock %}
+

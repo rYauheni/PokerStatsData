@@ -4,15 +4,22 @@
     PokerStatsData
 {% endblock %}
 
+{% block link %}
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="button_link" name="admin">Admin</button>
+    </form>
+{% endblock %}
+
 {% block content %}
     <div class="header">
-        <p class="aaaa">PokerStatsData Transfigurator</p>
+        <p>PokerStatsData Transfigurator</p>
     </div>
     <form method="post" class="input">
         {% csrf_token %}
         {% for field in form %}
             {{ field }}
         {% endfor %}
-        <button type="submit" name="transfogurate" class="button">TRANSFIGURATE</button>
+        <button type="submit" name="transfogurate" class="button_tfg">TRANSFIGURATE</button>
     </form>
 {% endblock %}
