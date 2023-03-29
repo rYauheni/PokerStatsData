@@ -9,3 +9,9 @@ class InputDataForm(forms.ModelForm):
         labels = {
             'input_data': 'InputData',
         }
+        widgets = {
+            'input_data': forms.Textarea(attrs={
+                'placeholder': 'Enter the data...',
+                'rows': 1,
+            }),
+        }
