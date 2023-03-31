@@ -28,13 +28,6 @@ class IndexView(FormView):
         url = reverse('transfiguration_url')
         return redirect(url)
 
-    def form_invalid(self, form):
-        if 'admin' in self.request.POST:
-            url = reverse('admin_url')
-            return redirect(url)
-        else:
-            raise Http404
-
 
 class TransfigurationView(View):
     def get(self, request):
@@ -47,12 +40,5 @@ class TransfigurationView(View):
                 'output_data': output_data,
                 'separator': SEPARATOR,
             })
-        else:
-            raise Http404
-
-    def post(self, request):
-        if 'main' in request.POST:
-            url = reverse('index_url')
-            return HttpResponseRedirect(url)
         else:
             raise Http404

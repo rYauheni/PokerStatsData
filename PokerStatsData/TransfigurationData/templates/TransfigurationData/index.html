@@ -5,10 +5,7 @@
 {% endblock %}
 
 {% block link %}
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" class="button_link" name="admin">Admin</button>
-    </form>
+    <a href="/admin" class="button_link">Admin</a>
 {% endblock %}
 
 {% block content %}
