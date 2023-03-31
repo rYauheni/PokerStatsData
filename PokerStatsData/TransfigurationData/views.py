@@ -1,6 +1,9 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
+from django.views import View
+from django.views.generic import FormView
+
 from .models import Title, Data
 from .forms import InputDataForm
 from .utils import SEPARATOR, transfigurate
@@ -8,31 +11,33 @@ from .utils import SEPARATOR, transfigurate
 
 # Create your views here.
 
-def index(request):
-    form = InputDataForm()
-    if request.method == 'GET':
-        return render(request, 'TransfigurationData/index.html', context={
-            'form': form,
-        })
-    elif request.method == 'POST':
-        form = InputDataForm(request.POST)
-        if form.is_valid():
-            form.save()
-            form.full_clean()
-            request.session.set_expiry(3600)
-            request.session['input_data'] = form.cleaned_data
-            request.session['existence'] = True
-            url = reverse('transfiguration_url')
-        elif 'admin' in request.POST:
+class IndexView(FormView):
+    template_name = 'TransfigurationData/index.html'
+    form_class = InputDataForm
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+    def form_valid(self, form):
+        form.save()
+        form.full_clean()
+        self.request.session.set_expiry(3600)
+        self.request.session['input_data'] = form.cleaned_data
+        self.request.session['existence'] = True
+        url = reverse('transfiguration_url')
+        return redirect(url)
+
+    def form_invalid(self, form):
+        if 'admin' in self.request.POST:
             url = reverse('admin_url')
+            return redirect(url)
         else:
             raise Http404
 
-        return redirect(url)
 
-
-def transfiguration_data(request):
-    if request.method == "GET":
+class TransfigurationView(View):
+    def get(self, request):
         if 'existence' in request.session:
             input_data = request.session.get('input_data')
             input_data = input_data['input_data']
@@ -44,10 +49,10 @@ def transfiguration_data(request):
             })
         else:
             raise Http404
-    elif request.method == "POST":
+
+    def post(self, request):
         if 'main' in request.POST:
             url = reverse('index_url')
-            return redirect(url)
+            return HttpResponseRedirect(url)
         else:
             raise Http404
-

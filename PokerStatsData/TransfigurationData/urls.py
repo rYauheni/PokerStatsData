@@ -18,6 +18,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index_url'),
-    path('transfigurated_data', views.transfiguration_data, name='transfiguration_url')
+    path('', views.IndexView.as_view(), name='index_url'),
+    path('transfigurated_data', views.TransfigurationView.as_view(), name='transfiguration_url')
 ]
