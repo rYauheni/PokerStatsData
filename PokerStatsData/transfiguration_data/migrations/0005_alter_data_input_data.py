@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('TransfigurationData', '0004_alter_data_input_data'),
+        ('transfiguration_data', '0004_alter_data_input_data'),
     ]
 
     operations = [

@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('TransfigurationData', '0003_alter_title_priority'),
+        ('transfiguration_data', '0003_alter_title_priority'),
     ]
 
     operations = [

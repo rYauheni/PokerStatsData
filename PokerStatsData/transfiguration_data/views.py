@@ -12,7 +12,7 @@ from .utils import SEPARATOR, transfigurate
 # Create your views here.
 
 class IndexView(FormView):
-    template_name = 'TransfigurationData/index.html'
+    template_name = 'transfiguration_data/index.html'
     form_class = InputDataForm
 
     def get(self, request, *args, **kwargs):
@@ -36,7 +36,7 @@ class TransfigurationView(View):
             input_data = input_data['input_data']
             titles = Title.objects.exclude(priority__isnull=True).order_by('priority')
             output_data = transfigurate(input_data=input_data, titles=titles)
-            return render(request, 'TransfigurationData/transfiguration.html', context={
+            return render(request, 'transfiguration_data/transfiguration.html', context={
                 'output_data': output_data,
                 'separator': SEPARATOR,
             })

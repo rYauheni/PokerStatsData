@@ -1,5 +1,5 @@
 """
-ASGI config for PokerStatsData project.
+ASGI config for poker_stats_data project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'PokerStatsData.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'poker_stats_data.settings')
 
 application = get_asgi_application()

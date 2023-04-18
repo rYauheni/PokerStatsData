@@ -1,4 +1,4 @@
-"""PokerStatsData URL Configuration
+"""poker_stats_data URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin_url'),
-    path('', include('TransfigurationData.urls'))
+    path('', include('transfiguration_data.urls'))
 ]

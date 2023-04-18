@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('TransfigurationData', '0001_initial'),
+        ('transfiguration_data', '0001_initial'),
     ]
 
     operations = [

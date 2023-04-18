@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('TransfigurationData', '0002_rename_titles_title'),
+        ('transfiguration_data', '0002_rename_titles_title'),
     ]
 
     operations = [
