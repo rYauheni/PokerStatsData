@@ -3,9 +3,9 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'TransfigurationData/css/style.css' %}">
-    <link type="image/x-icon" href="{% static 'TransfigurationData/img/favicon.png' %}" rel="shortcut icon">
-    <link type="Image/x-icon" href="{% static 'TransfigurationData/img/favicon.png' %}" rel="icon">
+    <link rel="stylesheet" href="{% static 'transfiguration_data/css/style.css' %}">
+    <link type="image/x-icon" href="{% static 'transfiguration_data/img/favicon.png' %}" rel="shortcut icon">
+    <link type="Image/x-icon" href="{% static 'transfiguration_data/img/favicon.png' %}" rel="icon">
     <title>{% block title %} {% endblock %}</title>
     {% block head %}
     {% endblock %}
@@ -15,7 +15,7 @@
         {% block link %}
         {% endblock %}
     </div>
-    <img src="{% static 'TransfigurationData/img/cards.png' %}" class="banner">
+    <img src="{% static 'transfiguration_data/img/cards.png' %}" class="banner">
     {% block content %}
     {% endblock %}
 
