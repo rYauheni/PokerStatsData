@@ -1,3 +1,5 @@
-/PokerStatsData/db.sqlite3
+db.sqlite3
 /venv/
-/PokerStatsData/.env
+.idea
+.env
+/.env
