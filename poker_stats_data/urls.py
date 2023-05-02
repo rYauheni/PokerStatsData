@@ -18,9 +18,11 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from .settings.base import STATIC_URL, STATIC_ROOT
+
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin_url'),
     path('', include('transfiguration_data.urls'))
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)

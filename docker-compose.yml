@@ -2,13 +2,20 @@ version: "3"
 
 services:
   web:
-    image: psd:0.3
-    command: gunicorn poker_stats_data.wsgi:application --bind 0.0.0.0:8000
+    image: psd:0.4
+    command: python manage.py migrate && gunicorn poker_stats_data.wsgi:application --bind 0.0.0.0:8000 --env DJANGO_SETTINGS_MODULE=poker_stats_data.settings.prod
     volumes:
       - .:/code
     ports:
       - "8000:8000"
     depends_on:
       - db
+    env_file:
+      - .env
   db:
-    image: esolang/sqlite3
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+
