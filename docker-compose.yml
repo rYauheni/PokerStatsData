@@ -7,11 +7,12 @@ services:
       dockerfile: Dockerfile
       tags:
         - psd:0.4
-    command: python manage.py migrate && gunicorn poker_stats_data.wsgi:application --bind 0.0.0.0:8000 --env DJANGO_SETTINGS_MODULE=poker_stats_data.settings.prod
+    command: gunicorn poker_stats_data.wsgi:application --bind 0.0.0.0:8000 --env DJANGO_SETTINGS_MODULE=poker_stats_data.settings.prod
+
     volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
+      - static_volume:/app/static/
+    expose:
+      - "8000"
     depends_on:
       - db
     env_file:
@@ -22,6 +23,24 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
+  nginx:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./nginx_conf/
+    container_name: psd_nginx
+    image: psd_nginx
+    volumes:
+      - static_volume:/app/static/
+    depends_on:
+      - web
+    ports:
+      - "1337:80"
 
+volumes:
+  postgres_data:
+  static_volume:

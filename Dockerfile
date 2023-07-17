@@ -8,15 +8,15 @@ RUN pip install --upgrade pip
 
 WORKDIR /app
 RUN mkdir static
-
+#
 COPY . /app
-COPY /transfiguration_data/static/ /app/static/
+# COPY /transfiguration_data/static/ /app/static/
 
-ENV STATIC_URL /static/
-ENV STATIC_ROOT /app/static
+# ENV STATIC_URL /static/
+# ENV STATIC_ROOT /app/static
 
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "python manage.py collectstatic --noinput"]
+RUN python manage.py collectstatic --noinput --settings=poker_stats_data.settings.prod
