@@ -30,10 +30,12 @@ ___
 
 ## Installation
 
-Run the following commands to bootstrap your environment (for Windows cmd):
+Run the following commands to bootstrap your environment.
+
+For Windows:
 
 ```commandline
-git clone https://github.com/rYauheni/poker_stats_data.git
+git clone https://github.com/rYauheni/PokerStatsData.git
 
 python -m venv venv
 venv\Scripts\activate
@@ -44,6 +46,19 @@ copy .env.template .env
 
 ```
 
+For Linux:
+
+```commandline
+git clone https://github.com/rYauheni/PokerStatsData.git
+
+python3 -m venv venv
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+cp .env.template .env
+```
+
 ___
 
 ## QuickStart for development
@@ -52,23 +67,39 @@ ___
 
 
 2. Run the app locally:
+   
+   for Windows:
 
    ```commandline
    python manage.py runserver 0.0.0.0:8000 --settings=poker_stats_data.settings.dev
    ```
+   
+   for Linux:
 
+   ```commandline
+   python3 manage.py runserver 0.0.0.0:8000 --settings=poker_stats_data.settings.dev
+   ```
+   
 3. Run the app with gunicorn:
 
+   for Windows&Linux:
    ```commandline
    gunicorn poker_stats_data.wsgi:application --bind 0.0.0.0:8000 --env DJANGO_SETTINGS_MODULE=poker_stats_data.settings.dev
    ```
 
 4. Apply migrations:
 
+   for Windows:
+
     ```commandline
     python manage.py migrate --settings=poker_stats_data.settings.dev
     ```
 
+   for Linux:
+
+   ```commandline
+   python3 manage.py migrate --settings=poker_stats_data.settings.dev
+   ```
 ___
 
 ## Launch for production
