@@ -22,11 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', os.getenv('DB_HOST'), '52.232.2.252:5432', 'dumbo.db.elephantsql.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', os.getenv('DB_HOST'), '193.187.175.182', '193.187.175.182:1337']
 
 # Application definition
 
@@ -112,6 +114,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_COOKIE_SECURE = True
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://localhost:1337', ]
+CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://localhost:1337',
+                        'http://193.187.175.182', 'http://193.187.175.182:1337']
 
 SESSION_COOKIE_SECURE = True
