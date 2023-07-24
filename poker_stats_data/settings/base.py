@@ -112,9 +112,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://localhost:1337',
                         'http://193.187.175.182', 'http://193.187.175.182:1337']
 
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
