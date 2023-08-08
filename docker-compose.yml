@@ -17,6 +17,7 @@ services:
       - db
     env_file:
       - .env
+    restart: unless-stopped
   db:
     image: postgres:alpine
     environment:
@@ -28,6 +29,7 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
+    restart: unless-stopped
   nginx:
     build:
       dockerfile: ./Dockerfile
@@ -40,6 +42,7 @@ services:
       - web
     ports:
       - "1337:80"
+    restart: unless-stopped
 
 volumes:
   postgres_data:
