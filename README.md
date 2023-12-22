@@ -1,10 +1,12 @@
 # PokerStatsData
 
-**PokerStatsData** is a web application for converting and organizing poker session statistics in a dictionary-like
+[**PokerStatsData**](http://193.187.175.182:1337) is a web application for converting and organizing poker session statistics in a dictionary-like
 manner (key-value pairs).
 
 The application receives poker session data separated by a certain separator (space, by default). As a result, the
 application produces this data connected to the corresponding keys.
+
+You can try the application [here](http://193.187.175.182:1337).
 ___
 
 ## Technologies
