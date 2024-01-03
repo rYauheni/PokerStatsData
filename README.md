@@ -12,7 +12,7 @@ ___
 ## Technologies
 
 [![Python](https://img.shields.io/badge/Python-3.10-%23FFD040?logo=python&logoColor=white&labelColor=%23376E9D)](https://www.python.org/downloads/release/python-31012/)
-[![Django](https://img.shields.io/badge/Django-4.2-%232BA977?logo=django&logoColor=white&labelColor=%23092E20)](https://www.djangoproject.com/)
+[![Django](https://img.shields.io/badge/Django-4.1-%232BA977?logo=django&logoColor=white&labelColor=%23092E20)](https://www.djangoproject.com/)
 
 [![Gunicorn](https://img.shields.io/badge/Gunicorn-%23479946?logo=gunicorn&logoColor=white&labelColor=%23293133)](https://gunicorn.org/)
 [![Nginx](https://img.shields.io/badge/Nginx-%23009639?logo=nginx&logoColor=white&labelColor=%23293133)](https://nginx.org/)
