@@ -102,6 +102,20 @@ ___
    ```commandline
    python3 manage.py migrate --settings=poker_stats_data.settings.dev
    ```
+
+5. Run tests:
+
+   for Windows:
+
+    ```commandline
+    python manage.py test  --settings=poker_stats_data.settings.dev
+    ```
+
+   for Linux:
+
+   ```commandline
+   python3 manage.py test  --settings=poker_stats_data.settings.dev
+   ```
 ___
 
 ## Launch for production
