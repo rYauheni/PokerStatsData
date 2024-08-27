@@ -123,22 +123,25 @@ ___
 1. Determine the value of environment variables in the file `.env`
 
 
-2. Run docker container with command:
+2. Add your server IP address to `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` in `/poker_stats_data/settings/base.py/`.
+
+
+3. Run docker container with command:
 
     ```commandline
-    docker-compose up
+    docker compose up
     ```
 
-3. Apply migrations:
+4. Apply migrations:
 
     ```commandline
-    docker-compose exec web python manage.py migrate --noinput --settings=poker_stats_data.settings.prod
+    docker compose exec web python manage.py migrate --noinput --settings=poker_stats_data.settings.prod
     ```
 
-4. Create superuser
+5. Create superuser
 
     ```commandline
-    docker-compose exec web python manage.py createsuperuser --settings=poker_stats_data.settings.prod
+    docker compose exec web python manage.py createsuperuser --settings=poker_stats_data.settings.prod
     ```
 
  ___
